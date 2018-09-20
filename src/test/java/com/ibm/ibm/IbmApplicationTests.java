@@ -21,8 +21,10 @@ public class IbmApplicationTests {
     public void contextLoads() {
 
         try {
-            jmsMessagingTemplate.convertAndSend(new MQQueue("testQueue"), "testMessage");
-            System.out.println("Message sent.");
+            for (int i = 0; i < 10; i++) {
+                jmsMessagingTemplate.convertAndSend(new MQQueue("testQueue"), "testMessage" + i);
+            }
+            System.out.println("Messages sent.");
         } catch (JMSException e) {
             System.out.println("Error occurred: " + e.getMessage());
         }
