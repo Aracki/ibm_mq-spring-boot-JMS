@@ -1,6 +1,6 @@
 package com.ibm.ibm;
 
-import com.ibm.mq.jms.MQTopic;
+import com.ibm.mq.jms.MQQueue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +14,18 @@ import javax.jms.JMSException;
 @SpringBootTest
 public class IbmApplicationTests {
 
-	@Autowired
-	JmsMessagingTemplate jmsMessagingTemplate;
+    @Autowired
+    JmsMessagingTemplate jmsMessagingTemplate;
 
-	@Test
-	public void contextLoads() {
+    @Test
+    public void contextLoads() {
 
-		try {
-			jmsMessagingTemplate.convertAndSend(new MQTopic("testTopic"), "testMessage");
-			System.out.println("Message sent.");
-		} catch (JMSException e) {
-			System.out.println("Error occurred: " + e.getMessage());
-		}
-	}
+        try {
+            jmsMessagingTemplate.convertAndSend(new MQQueue("testQueue"), "testMessage");
+            System.out.println("Message sent.");
+        } catch (JMSException e) {
+            System.out.println("Error occurred: " + e.getMessage());
+        }
+    }
 
 }
