@@ -1,6 +1,7 @@
 package com.ibm.ibm;
 
 import com.ibm.mq.jms.MQQueue;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,12 @@ public class IbmApplicationTests {
     JmsMessagingTemplate jmsMessagingTemplate;
 
     @Test
+    @Ignore
     public void contextLoads() {
 
         try {
             for (int i = 0; i < 10; i++) {
-                jmsMessagingTemplate.convertAndSend(new MQQueue("testQueue"), "testMessage" + i);
+                jmsMessagingTemplate.convertAndSend(new MQQueue("vugla"), "testMessage" + i);
             }
             System.out.println("Messages sent.");
         } catch (JMSException e) {

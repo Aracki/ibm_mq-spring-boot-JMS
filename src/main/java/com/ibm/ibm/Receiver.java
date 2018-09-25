@@ -19,7 +19,7 @@ public class Receiver {
     @Value(value = "${file.location}")
     private String fileLocation;
 
-    @JmsListener(destination = "testQueue")
+    @JmsListener(destination = "${queue.name}")
     public void receiveMessage(String message) {
         if (StringUtils.isEmpty(fileLocation)) {
             System.out.println("Please specify correct file location in application.properties file.");
