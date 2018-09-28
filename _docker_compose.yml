@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+    spring-mq-client:
+        image: spring-mq-client:latest
+        container_name: spring-mq-client
+        networks:
+            - mq-demo-network
+        volumes:
+            - qmdata:/mnt/mqm
+
+volumes:
+    qmdata:
+        external: true
+
+networks:
+    mq-demo-network:
+        external:
+            name: mq-demo-network
