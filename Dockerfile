@@ -1,5 +1,4 @@
 FROM ibmcom/ibmjava:8-sdk
-COPY build/libs/ibm.jar app.jar
 
 #---------------Default argument values--------------------
 ARG TRUST_STORE_TYPE=pkcs12
@@ -28,6 +27,8 @@ ENV TRUST_STORE_TYPE=$TRUST_STORE_TYPE \
     QUEUE_NAME=$QUEUE_NAME \
     SSL_CIPHER_SUITE=$SSL_CIPHER_SUITE \
     FILE_LOCATION=$FILE_LOCATION
+
+COPY build/libs/ibm.jar app.jar
 
 ENTRYPOINT java \
            -Djavax.net.ssl.trustStoreType=$TRUST_STORE_TYPE \
