@@ -4,7 +4,7 @@ FROM ibmcom/ibmjava:8-sdk
 ARG TRUST_STORE_TYPE=pkcs12
 ARG TRUST_STORE=/mnt/mqm/MQClient/certs/client_key.p12
 ARG TRUST_STORE_PWD=tru5tpassw0rd
-ARG KEY_STORE=QM1.cert
+ARG KEY_STORE=/mnt/mqm/MQServer/certs/QM1.cert
 ARG KEY_STORE_PWD=keypassw0rd
 
 ARG CONN_NAME=qmgr
