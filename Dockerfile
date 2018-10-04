@@ -4,6 +4,8 @@ FROM ibmcom/ibmjava:8-sdk
 ARG TRUST_STORE_TYPE=pkcs12
 ARG TRUST_STORE=/mnt/mqm/MQClient/certs/client_key.p12
 ARG TRUST_STORE_PWD=tru5tpassw0rd
+ARG KEY_STORE=QM1.cert
+ARG KEY_STORE_PWD=keypassw0rd
 
 ARG CONN_NAME=qmgr
 ARG USER=app
@@ -19,6 +21,8 @@ ARG FILE_LOCATION="/tmp/msgs"
 ENV TRUST_STORE_TYPE=$TRUST_STORE_TYPE \
     TRUST_STORE=$TRUST_STORE \
     TRUST_STORE_PWD=$TRUST_STORE_PWD \
+    KEY_STORE=$KEY_STORE \
+    KEY_STORE_PWD=$KEY_STORE_PWD \
     CONN_NAME=$CONN_NAME \
     USER=$USER \
     USER_PWD=$USER_PWD \
@@ -34,6 +38,8 @@ ENTRYPOINT java \
            -Djavax.net.ssl.trustStoreType=$TRUST_STORE_TYPE \
            -Djavax.net.ssl.trustStore=$TRUST_STORE \
            -Djavax.net.ssl.trustStorePassword=$TRUST_STORE_PWD \
+           -Djavax.net.ssl.keyStore=$KEY_STORE \
+           -Djavax.net.ssl.keyStorePassword=$KEY_STORE_PWD \
            -jar app.jar \
            --file.location=$FILE_LOCATION \
            --ibm.mq.connName=$CONN_NAME \
