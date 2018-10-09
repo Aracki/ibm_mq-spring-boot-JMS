@@ -14,3 +14,7 @@
 ##queue:
 ##  name: DEV.QUEUE.1
 #debug: true
+
+logging:
+  level:
+    org.springframework.jms: DEBUG
