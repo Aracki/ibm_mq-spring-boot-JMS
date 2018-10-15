@@ -1,20 +1,13 @@
-##DEFAULT IBM MQ PROPERTIES
-#ibm:
-#  mq:
-#    queue-manager: QM1
-#    channel: DEV.APP.SVRCONN
-#    conn-name: qmgr(1414)
-#    user: app
-#    password: passw0rd
-#    ssl-cipher-suite: SSL_RSA_WITH_AES_128_CBC_SHA256
-#    user-authentication-m-q-c-s-p:
-
 #file:
 ##  location: /tmp/msgs
 ##queue:
 ##  name: DEV.QUEUE.1
-#debug: true
 
 logging:
   level:
     org.springframework.jms: DEBUG
+
+ibm:
+  mq:
+    user:
+    password:
