@@ -26,3 +26,5 @@
 /.nb-gradle/
 
 .DS_STORE
+
+src/main/resources/application.yml
