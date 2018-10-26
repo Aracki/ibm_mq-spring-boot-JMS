@@ -43,7 +43,7 @@ public class Receiver {
             System.out.println("Please specify correct file location in application.properties file.");
             return;
         }
-        System.out.println("Received <" + message + ">");
+        System.out.println("Received: " + message);
 
         Path filePath = Paths.get(fileLocation + LocalDate.now());
         try {
