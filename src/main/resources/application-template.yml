@@ -1,0 +1,9 @@
+logging:
+  level:
+    org.springframework.jms: DEBUG
+
+# This is how to override default admin user
+ibm:
+  mq:
+    user:
+    password:
