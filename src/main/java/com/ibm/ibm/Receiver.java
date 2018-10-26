@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
 
 @Component
 public class Receiver {
@@ -44,13 +45,13 @@ public class Receiver {
         }
         System.out.println("Received <" + message + ">");
 
-        Path file = Paths.get(fileLocation);
+        Path filePath = Paths.get(fileLocation + LocalDate.now());
         try {
-            if (Files.notExists(file)) {
+            if (Files.notExists(filePath)) {
                 System.out.println("Writing message to a file...");
-                writeToFile(file, message, StandardOpenOption.CREATE);
+                writeToFile(filePath, message, StandardOpenOption.CREATE);
             } else {
-                writeToFile(file, message, StandardOpenOption.APPEND);
+                writeToFile(filePath, message, StandardOpenOption.APPEND);
             }
         } catch (IOException e) {
             System.out.println("Error occurred: " + e.getMessage());
